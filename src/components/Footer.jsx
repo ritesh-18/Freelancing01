@@ -64,15 +64,15 @@ const Layer02 = () => {
               Useful Links
             </Typography>
             <Typography variant="body2" paragraph>
-              107, Pearls Business Park, N.S.P., Delhi- 110035
+            Flat No. 1791 FF M/G, Sec-6 Near Subhash Chowk Dharuhera (Hr) 123106
             </Typography>
             <Typography variant="body2">
               <a href="tel:+919953642957,+919213388971" style={{ color: 'inherit', textDecoration: 'none' }}>
-                9953642957, 9213388971
+                9899444483
               </a>
             </Typography>
-            <Link href="mailto:info@suryalogistics.in" color="inherit" underline="hover" sx={{ display: 'block', mt: 1 }}>
-              info@suryalogistics.in
+            <Link href="mailto:suryalogistics@suryalogisticsdhr.com" color="inherit" underline="hover" sx={{ display: 'block', mt: 1 }}>
+            suryalogistics@suryalogisticsdhr.com
             </Link>
           </Grid>
     

@@ -8,6 +8,7 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
 
 
+
 const Layer03=()=>{
   return(<>
   <Box
@@ -21,7 +22,7 @@ const Layer03=()=>{
       }}
     >
       <Typography variant="body2">
-        © 2023 Surya Logistics. All rights reserved | Designed & Developed By Ritesh
+        © 2023 Surya Logistics. All rights reserved | Built by <a href='https://ritesh-18.vercel.app' target='_blank' color='#2212bb'>Team Ritesh</a> 
       </Typography>
     </Box>
   </>)

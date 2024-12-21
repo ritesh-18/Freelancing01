@@ -8,36 +8,41 @@ import { styled } from '@mui/material/styles';
 const services = [
   {
     title: 'Transportation',
-    icon: <LocalShippingIcon sx={{ fontSize: 30 }} />,
-    imageUrl: 'https://suryalogistics.in/wp-content/uploads/2023/03/road-freight-services.png', // Replace with actual image URL
+    icon: <LocalShippingIcon sx={{ fontSize: 20 }} />,
+    imageUrl: 'https://suryalogistics.in/wp-content/uploads/2023/03/road-freight-services.png',
   },
   {
     title: 'Warehousing',
-    icon: <WarehouseIcon sx={{ fontSize: 30 }} />,
-    imageUrl: 'https://suryalogistics.in/wp-content/uploads/2023/03/warehouse.png', // Replace with actual image URL
+    icon: <WarehouseIcon sx={{ fontSize: 20 }} />,
+    imageUrl: 'https://suryalogistics.in/wp-content/uploads/2023/03/warehouse.png',
   },
   {
     title: 'Value Added Services',
-    icon: <BuildIcon sx={{ fontSize: 30 }} />,
-    imageUrl: 'https://suryalogistics.in/wp-content/uploads/2023/03/vas.png', // Replace with actual image URL
+    icon: <BuildIcon sx={{ fontSize: 20 }} />,
+    imageUrl: 'https://suryalogistics.in/wp-content/uploads/2023/03/vas.png',
   },
 ];
 
-const ServiceCard = styled(Card)({
+const ServiceCard = styled(Card)(({ theme }) => ({
   position: 'relative',
   width: '350px',
   height: '300px',
   margin: '10px',
   overflow: 'hidden',
   boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.2)',
-});
-
-
-
-
-
-
-
+  [theme.breakpoints.down('lg')]: {
+    width: '280px', // Adjust width for large tablets and small devices
+    height: '250px', // Adjust height for large tablets
+  },
+  [theme.breakpoints.down('md')]: {
+    width: '250px', // Adjust width for smaller devices
+    height: '220px', // Adjust height for smaller devices
+  },
+  [theme.breakpoints.down('sm')]: {
+    width: '200px', // Adjust width for phones
+    height: '180px', // Adjust height for phones
+  },
+}));
 
 const OverlayBox = styled(Box)(({ theme }) => ({
   position: 'absolute',
@@ -53,68 +58,64 @@ const OverlayBox = styled(Box)(({ theme }) => ({
   transition: 'all 0.3s ease-in-out',
   width: '90%',
   justifyContent: 'center',
+  flexDirection: 'column',
   '&:hover': {
     transform: 'translateX(-50%) scale(1.05)',
   },
 }));
 
-
-const ServiceContainer = styled(Box)({
+const ServiceContainer = styled(Box)(({ theme }) => ({
   display: 'flex',
+  flexDirection: 'row',
   justifyContent: 'center',
   alignItems: 'center',
   gap: '20px',
   marginTop: '20px',
-  
-});
+  [theme.breakpoints.down('sm')]: {
+    flexDirection: 'column',
+    alignItems: 'center',
+  },
+}));
 
 const ServiceBox = () => {
-
   const [isHovered, setIsHovered] = useState(false);
 
-  // Inline styles for the div
   const divStyle = {
-    height: isHovered ? '200px' : '0',
+    height: isHovered ? '100px' : '0',
     overflow: 'hidden',
     transform: isHovered ? 'scaleY(1)' : 'scaleY(0)',
     transformOrigin: 'top',
     transition: 'transform 0.5s ease',
   };
-  // const divStyle = {
-  //   height: isHovered ? 'auto' : '0',                // Allow height to grow only downward
-  //   overflow: 'hidden',                              // Hide content when collapsed
-  //   transition: 'height 0.5s ease',                  // Smooth transition for height change
-  //   paddingBottom: isHovered ? '10px' : '0',         // Padding for space at the bottom
-  // };
 
   return (
     <ServiceContainer>
       {services.map((service, index) => (
-     <ServiceCard key={index}>
-     <CardMedia
-       component="img"
-       height="150"
-       image={service.imageUrl}
-       alt={service.title}
-     />
-     <OverlayBox style={{display:"flex" , flexDirection:"column"}}>
-     <div style={{display:"flex"}}> {service.icon}
-       
-       <Typography variant="subtitle1" sx={{ ml: 2 }}>
-         {service.title}
-       </Typography></div>
-       <div style={divStyle}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)} >
-       Surya Logistics Limited is a market leader in providing integrated solutions within road and rail cargo. Over the past years, due to our continued hard work & dedication, we have excelled ourselves in this domain.
-       </div>
-      
-     
-     </OverlayBox>
-   </ServiceCard>
+        <ServiceCard key={index}>
+          <CardMedia
+            component="img"
+            height="150"
+            image={service.imageUrl}
+            alt={service.title}
+          />
+          <OverlayBox>
+            <Box display="flex" alignItems="center">
+              {service.icon}
+              <Typography variant="subtitle2" sx={{ ml: 2 }}>
+                {service.title}
+              </Typography>
+            </Box>
+            <Box
+              style={divStyle}
+              onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={() => setIsHovered(false)}
+            >
+              Surya Logistics Limited is a market leader in providing integrated solutions within road and rail cargo. Over the past years, due to our continued hard work & dedication, we have excelled ourselves in this domain.
+            </Box>
+          </OverlayBox>
+        </ServiceCard>
       ))}
     </ServiceContainer>
-    
   );
 };
 

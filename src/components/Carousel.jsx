@@ -23,7 +23,7 @@ const ExampleCarouselImage = ({ text }) => (
   >
     <img
       src={text}
-      alt="abc"
+      alt="carousel image"
       style={{
         width: '100%',          // Ensure image fills width of box
         height: '100%',         // Ensure image fills height of box
@@ -43,30 +43,51 @@ function Carousel() {
     autoplay: true,
     autoplaySpeed: 2000,
     arrows: true,
+    responsive: [
+      {
+        breakpoint: 1024, // For medium to large screens like tablets and below
+        settings: {
+          slidesToShow: 1,  // Keep 1 slide at a time for medium screens
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 600, // For mobile screens
+        settings: {
+          slidesToShow: 1,  // Keep 1 slide at a time for small screens
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 480, // For very small mobile screens
+        settings: {
+          slidesToShow: 1,  // Keep 1 slide at a time for very small screens
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
 
   return (
-    <>
-      <Box
-        sx={{
-          my: 4,
-          overflow: 'hidden', // Prevents x-axis scrolling
-          width: '100%',      // Ensures the box fits within the screen
-        }}
-      >
-        <Slider {...settings}>
-          <Box>
-            <ExampleCarouselImage text={serviceimg} />
-          </Box>
-          <Box>
-            <ExampleCarouselImage text={chooseus} />
-          </Box>
-          <Box>
-            <ExampleCarouselImage text={transport} />
-          </Box>
-        </Slider>
-      </Box>
-    </>
+    <Box
+      sx={{
+        my: 4,
+        overflow: 'hidden', // Prevents x-axis scrolling
+        width: '100%',      // Ensures the box fits within the screen
+      }}
+    >
+      <Slider {...settings}>
+        <Box>
+          <ExampleCarouselImage text={serviceimg} />
+        </Box>
+        <Box>
+          <ExampleCarouselImage text={chooseus} />
+        </Box>
+        <Box>
+          <ExampleCarouselImage text={transport} />
+        </Box>
+      </Slider>
+    </Box>
   );
 }
 

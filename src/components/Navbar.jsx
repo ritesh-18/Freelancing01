@@ -40,6 +40,7 @@ const Navbar = () => {
             mb: { xs: 2, lg: 0 },
             wordBreak: "break-word", // Break words if they overflow on smaller screens
             maxWidth: "100%", // Prevent text from overflowing
+            fontSize: { xs: "0.75rem", sm: "0.875rem", lg: "1rem" }, // Responsive font size
           }}
         >
           Flat No. 1791 FF M/G, Sec-6 Near Subhash Chowk Dharuhera (Hr) 123106

@@ -11,7 +11,7 @@ import abc from "../assets/images/clients/HMEL-Logo.png"
 const Home = () => {
   return (
     <div className='h-12'>
-      {/* <Navbar /> */}
+      <Navbar />
       <Nav2Bar/>
       <Carousel/>
       <div style={{textAlign:"center" , fontSize:"22px" , fontWeight:"bold" , marginTop:"5px"}}>What we do</div>

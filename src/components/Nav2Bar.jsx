@@ -1,4 +1,3 @@
-
 // import {
 //   AppBar,
 //   Toolbar,
@@ -111,7 +110,7 @@ import {
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MenuIcon from "@mui/icons-material/Menu";
-import Icon from "../assets/images/Icon.png"
+import Icon from "../assets/images/Icon.png";
 
 const Nav2Bar = () => {
   const [aboutAnchorEl, setAboutAnchorEl] = useState(null);
@@ -119,14 +118,18 @@ const Nav2Bar = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
 
   const handleAboutClick = (event) => setAboutAnchorEl(event.currentTarget);
-  const handleServicesClick = (event) => setServicesAnchorEl(event.currentTarget);
+  const handleServicesClick = (event) =>
+    setServicesAnchorEl(event.currentTarget);
   const handleClose = () => {
     setAboutAnchorEl(null);
     setServicesAnchorEl(null);
   };
 
   const toggleDrawer = (open) => (event) => {
-    if (event.type === "keydown" && (event.key === "Tab" || event.key === "Shift")) {
+    if (
+      event.type === "keydown" &&
+      (event.key === "Tab" || event.key === "Shift")
+    ) {
       return;
     }
     setDrawerOpen(open);
@@ -138,16 +141,16 @@ const Nav2Bar = () => {
         <Toolbar
           sx={{
             display: "flex",
-            justifyContent: "space-between",
+            justifyContent: { xs: "space-between", sm: "space-around" },
             marginTop: "15px",
           }}
         >
           {/* Logo */}
           <Box display="flex" alignItems="center">
             <img
-              src={Icon}// Replace with Icon
+              src={Icon} // Replace with Icon
               alt="Surya Logistics Logo"
-              style={{ height: 80, marginLeft: 20 }}
+              style={{ height: 80, marginLeft: { xs: 5, sm: 20} }}
             />
           </Box>
 
@@ -214,10 +217,7 @@ const Nav2Bar = () => {
           onClick={toggleDrawer(false)}
           onKeyDown={toggleDrawer(false)}
         >
-          <Typography
-            variant="h6"
-            sx={{ textAlign: "center", my: 2 }}
-          >
+          <Typography variant="h6" sx={{ textAlign: "center", my: 2 }}>
             Menu
           </Typography>
           <Divider />
@@ -251,6 +251,5 @@ const Nav2Bar = () => {
 };
 
 export default Nav2Bar;
-
 
 // export default Nav2Bar;

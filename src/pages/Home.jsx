@@ -8,9 +8,11 @@ import ClientComponent from '../components/Clients'
 import CalculationComp from '../components/CalculationComp'
 import Footer from '../components/Footer'
 import abc from "../assets/images/clients/HMEL-Logo.png"
+import MainComponent from '../components/Abc'
 const Home = () => {
   return (
     <div className='h-12'>
+      
       <Navbar />
       <Nav2Bar/>
       <Carousel/>

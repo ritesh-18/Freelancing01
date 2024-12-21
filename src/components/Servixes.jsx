@@ -39,8 +39,8 @@ const ServiceCard = styled(Card)(({ theme }) => ({
     height: '220px', // Adjust height for smaller devices
   },
   [theme.breakpoints.down('sm')]: {
-    width: '200px', // Adjust width for phones
-    height: '180px', // Adjust height for phones
+    width: '250px', // Adjust width for phones
+    height: '200px', // Adjust height for phones
   },
 }));
 

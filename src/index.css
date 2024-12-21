@@ -10,8 +10,9 @@
   padding: 0;/* Import these in your App.css or directly in your component's CSS */
 
 
-  box-sizing: border-box;
-font-family: "Poppins";  
+box-sizing: border-box;
+font-family: "Roboto";  
 
 
-}
+} 
+/* i want to use roboto  */

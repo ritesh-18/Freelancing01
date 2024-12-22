@@ -64,13 +64,13 @@ const Contact = () => {
               <div>
                 <h3 className="font-bold mb-2">Phone:</h3>
                 <a href="tel:9953642957" className="text-blue-600">
-                  9953642957, 9213388971
+                +91-9899444483
                 </a>
               </div>
               <div>
                 <h3 className="font-bold mb-2">Email:</h3>
-                <a href="mailto:info@suryalogisticsdhr.com" className="text-blue-600">
-                  info@suryalogisticsdhr.com
+                <a href="mailto:  suryalogistics@suryalogisticsdhr.com" className="text-blue-600">
+                suryalogistics@suryalogisticsdhr.com
                 </a>
               </div>
             </div>
@@ -79,7 +79,7 @@ const Contact = () => {
           <div className="grid md:grid-cols-2 gap-12">
             <div className="w-full h-[300px] rounded-lg overflow-hidden">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3500.4475085543974!2d77.15178731508565!3d28.674378982399744!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d037a161883f7%3A0x9e38469d4b7c9e89!2sPearls%20Business%20Park!5e0!3m2!1sen!2sin!4v1645684689744!5m2!1sen!2sin"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13145.507773773988!2d77.01666363310551!3d28.436004359326994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d19aeff513fdb%3A0xbf1406f97e749c92!2sSubhash%20chowk!5e0!3m2!1sen!2sin!4v1734871792917!5m2!1sen!2sin"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
@@ -87,6 +87,7 @@ const Contact = () => {
                 loading="lazy"
                 title="Office Location"
               ></iframe>
+              
             </div>
             <div>
               <h2 className="text-2xl font-bold mb-4">Visit Us</h2>

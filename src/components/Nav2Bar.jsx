@@ -111,6 +111,7 @@ import {
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MenuIcon from "@mui/icons-material/Menu";
 import Icon from "../assets/images/Icon.png";
+import { Link } from "react-router-dom";
 
 const Nav2Bar = () => {
   const [aboutAnchorEl, setAboutAnchorEl] = useState(null);
@@ -138,76 +139,97 @@ const Nav2Bar = () => {
   return (
     <div>
       <AppBar position="static" color="transparent" elevation={0}>
-        <Toolbar
-          sx={{
-            display: "flex",
-            justifyContent: { xs: "space-between", sm: "space-around" },
-            marginTop: "15px",
-          }}
-        >
-          {/* Logo */}
-          <Box display="flex" alignItems="center">
-            <img
-              src={Icon} // Replace with Icon
-              alt="Surya Logistics Logo"
-              style={{ height: 80, marginLeft: { xs: 5, sm: 20} }}
-            />
-          </Box>
+      <Toolbar
+        sx={{
+          display: "flex",
+          justifyContent: { xs: "space-between", sm: "space-around" },
+          marginTop: "15px",
+        }}
+      >
+        {/* Logo */}
+        <Box display="flex" alignItems="center">
+          <img
+            src={Icon} // Replace with Icon
+            alt="Surya Logistics Logo"
+            style={{ height: 80, marginLeft: { xs: 5, sm: 20 } }}
+          />
+        </Box>
 
-          {/* Navigation for Larger Screens */}
-          <Box sx={{ display: { xs: "none", md: "flex" }, gap: "10px" }}>
-            <Button color="inherit">Home</Button>
-            <Button
-              color="inherit"
-              endIcon={<ExpandMoreIcon />}
-              onClick={handleAboutClick}
-            >
-              About Us
-            </Button>
-            <Menu
-              anchorEl={aboutAnchorEl}
-              open={Boolean(aboutAnchorEl)}
-              onClose={handleClose}
-            >
-              <MenuItem onClick={handleClose}>Our Story</MenuItem>
-              <MenuItem onClick={handleClose}>Our Team</MenuItem>
-            </Menu>
+        {/* Navigation for Larger Screens */}
+        <Box sx={{ display: { xs: "none", md: "flex" }, gap: "10px" }}>
+          <Button color="inherit" component={Link} to="/">
+            Home
+          </Button>
 
-            <Button
-              color="inherit"
-              endIcon={<ExpandMoreIcon />}
-              onClick={handleServicesClick}
-            >
-              Services
-            </Button>
-            <Menu
-              anchorEl={servicesAnchorEl}
-              open={Boolean(servicesAnchorEl)}
-              onClose={handleClose}
-            >
-              <MenuItem onClick={handleClose}>Logistics</MenuItem>
-              <MenuItem onClick={handleClose}>Transportation</MenuItem>
-              <MenuItem onClick={handleClose}>Warehousing</MenuItem>
-            </Menu>
+          <Button
+            color="inherit"
+            endIcon={<ExpandMoreIcon />}
+            onClick={handleAboutClick}
+          >
+            About Us
+          </Button>
+          <Menu
+            anchorEl={aboutAnchorEl}
+            open={Boolean(aboutAnchorEl)}
+            onClose={handleClose}
+          >
+            <MenuItem component={Link} to="/our-story" onClick={handleClose}>
+              Our Story
+            </MenuItem>
+            <MenuItem component={Link} to="/our-team" onClick={handleClose}>
+              Our Team
+            </MenuItem>
+          </Menu>
 
-            <Button color="inherit">Our Tech</Button>
-            <Button color="inherit">Surya Eco</Button>
-            <Button color="inherit">Career</Button>
-            <Button color="inherit">Contact Us</Button>
-          </Box>
+          <Button
+            color="inherit"
+            endIcon={<ExpandMoreIcon />}
+            onClick={handleServicesClick}
+          >
+            Services
+          </Button>
+          <Menu
+            anchorEl={servicesAnchorEl}
+            open={Boolean(servicesAnchorEl)}
+            onClose={handleClose}
+          >
+            <MenuItem component={Link} to="/logistics" onClick={handleClose}>
+              Logistics
+            </MenuItem>
+            <MenuItem component={Link} to="/transportation" onClick={handleClose}>
+              Transportation
+            </MenuItem>
+            <MenuItem component={Link} to="/warehousing" onClick={handleClose}>
+              Warehousing
+            </MenuItem>
+          </Menu>
 
-          {/* Hamburger Menu for Smaller Screens */}
-          <Box sx={{ display: { xs: "block", md: "none" } }}>
-            <IconButton
-              aria-label="menu"
-              onClick={toggleDrawer(true)}
-              color="inherit"
-            >
-              <MenuIcon />
-            </IconButton>
-          </Box>
-        </Toolbar>
-      </AppBar>
+          <Button color="inherit" component={Link} to="/our-tech">
+            Our Tech
+          </Button>
+          <Button color="inherit" component={Link} to="/surya-eco">
+            Surya Eco
+          </Button>
+          <Button color="inherit" component={Link} to="/career">
+            Career
+          </Button>
+          <Button color="inherit" component={Link} to="/contact">
+            Contact Us
+          </Button>
+        </Box>
+
+        {/* Hamburger Menu for Smaller Screens */}
+        <Box sx={{ display: { xs: "block", md: "none" } }}>
+          <IconButton
+            aria-label="menu"
+            onClick={toggleDrawer(true)}
+            color="inherit"
+          >
+            <MenuIcon />
+          </IconButton>
+        </Box>
+      </Toolbar>
+    </AppBar>
 
       {/* Drawer for Smaller Screens */}
       <Drawer anchor="right" open={drawerOpen} onClose={toggleDrawer(false)}>
@@ -222,28 +244,28 @@ const Nav2Bar = () => {
           </Typography>
           <Divider />
           <List>
-            <ListItem button>
-              <ListItemText primary="Home" />
-            </ListItem>
-            <ListItem button>
-              <ListItemText primary="About Us" />
-            </ListItem>
-            <ListItem button>
-              <ListItemText primary="Services" />
-            </ListItem>
-            <ListItem button>
-              <ListItemText primary="Our Tech" />
-            </ListItem>
-            <ListItem button>
-              <ListItemText primary="Surya Eco" />
-            </ListItem>
-            <ListItem button>
-              <ListItemText primary="Career" />
-            </ListItem>
-            <ListItem button>
-              <ListItemText primary="Contact Us" />
-            </ListItem>
-          </List>
+      <ListItem button component={Link} to="/">
+        <ListItemText primary="Home" />
+      </ListItem>
+      <ListItem button component={Link} to="/about-us">
+        <ListItemText primary="About Us" />
+      </ListItem>
+      <ListItem button component={Link} to="/services">
+        <ListItemText primary="Services" />
+      </ListItem>
+      <ListItem button component={Link} to="/our-tech">
+        <ListItemText primary="Our Tech" />
+      </ListItem>
+      <ListItem button component={Link} to="/surya-eco">
+        <ListItemText primary="Surya Eco" />
+      </ListItem>
+      <ListItem button component={Link} to="/career">
+        <ListItemText primary="Career" />
+      </ListItem>
+      <ListItem button component={Link} to="/contact">
+        <ListItemText primary="Contact Us" />
+      </ListItem>
+    </List>
         </Box>
       </Drawer>
     </div>
